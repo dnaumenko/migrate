@@ -53,6 +53,7 @@ func Up(pipe chan interface{}, url, migrationsPath string) {
 	if len(applyMigrationFiles) > 0 {
 		for _, f := range applyMigrationFiles {
 			pipe1 := pipep.New()
+			log.Printf("Applying %v", f.FileName)
 			go d.Migrate(f, pipe1)
 			if ok := pipep.WaitAndRedirect(pipe1, pipe, handleInterrupts()); !ok {
 				break
@@ -96,6 +97,7 @@ func Down(pipe chan interface{}, url, migrationsPath string) {
 	if len(applyMigrationFiles) > 0 {
 		for _, f := range applyMigrationFiles {
 			pipe1 := pipep.New()
+			log.Printf("Applying %v", f.FileName)
 			go d.Migrate(f, pipe1)
 			if ok := pipep.WaitAndRedirect(pipe1, pipe, handleInterrupts()); !ok {
 				break
