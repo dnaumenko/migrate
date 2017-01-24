@@ -1,6 +1,6 @@
 # MySQL Driver
 
-### See [issue #1](https://github.com/gemnasium/migrate/issues/1#issuecomment-58728186) before using this driver!
+### See [issue #1](https://github.com/dnaumenko/migrate/issues/1#issuecomment-58728186) before using this driver!
 
 * Runs migrations in transcations.
   That means that if a migration failes, it will be safely rolled back.

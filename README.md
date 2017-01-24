@@ -1,19 +1,19 @@
 # migrate
 
-[![Build Status](https://travis-ci.org/gemnasium/migrate.svg?branch=master)](https://travis-ci.org/gemnasium/migrate)
-[![GoDoc](https://godoc.org/github.com/gemnasium/migrate?status.svg)](https://godoc.org/github.com/gemnasium/migrate)
+[![Build Status](https://travis-ci.org/dnaumenko/migrate.svg?branch=master)](https://travis-ci.org/dnaumenko/migrate)
+[![GoDoc](https://godoc.org/github.com/dnaumenko/migrate?status.svg)](https://godoc.org/github.com/dnaumenko/migrate)
 
 A migration helper written in Go. Use it in your existing Golang code 
 or run commands via the CLI. 
 
 ```
-GoCode   import github.com/gemnasium/migrate/migrate
-CLI      go get -u github.com/gemnasium/migrate
+GoCode   import github.com/dnaumenko/migrate/migrate
+CLI      go get -u github.com/dnaumenko/migrate
 ```
 
 __Features__
 
-* Super easy to implement [Driver interface](http://godoc.org/github.com/gemnasium/migrate/driver#Driver).
+* Super easy to implement [Driver interface](http://godoc.org/github.com/dnaumenko/migrate/driver#Driver).
 * Gracefully quit running migrations on ``^C``.
 * No magic search paths routines, no hard-coded config files.
 * CLI is build on top of the ``migrate package``.
@@ -21,20 +21,20 @@ __Features__
 
 ## Available Drivers
 
- * [PostgreSQL](https://github.com/gemnasium/migrate/tree/master/driver/postgres)
- * [Cassandra](https://github.com/gemnasium/migrate/tree/master/driver/cassandra)
- * [SQLite](https://github.com/gemnasium/migrate/tree/master/driver/sqlite3)
- * [MySQL](https://github.com/gemnasium/migrate/tree/master/driver/mysql) ([experimental](https://github.com/mattes/migrate/issues/1#issuecomment-58728186))
+ * [PostgreSQL](https://github.com/dnaumenko/migrate/tree/master/driver/postgres)
+ * [Cassandra](https://github.com/dnaumenko/migrate/tree/master/driver/cassandra)
+ * [SQLite](https://github.com/dnaumenko/migrate/tree/master/driver/sqlite3)
+ * [MySQL](https://github.com/dnaumenko/migrate/tree/master/driver/mysql) ([experimental](https://github.com/mattes/migrate/issues/1#issuecomment-58728186))
  * Bash (planned)
 
-Need another driver? Just implement the [Driver interface](http://godoc.org/github.com/gemnasium/migrate/driver#Driver) and open a PR.
+Need another driver? Just implement the [Driver interface](http://godoc.org/github.com/dnaumenko/migrate/driver#Driver) and open a PR.
 
 
 ## Usage from Terminal
 
 ```bash
 # install
-go get github.com/gemnasium/migrate
+go get github.com/dnaumenko/migrate
 
 # create new migration file in path
 migrate -url driver://url -path ./migrations create migration_file_xyz
@@ -73,13 +73,13 @@ migrate -url driver://url -path ./migrations goto v
 
 ## Usage in Go
 
-See GoDoc here: http://godoc.org/github.com/gemnasium/migrate/migrate
+See GoDoc here: http://godoc.org/github.com/dnaumenko/migrate/migrate
 
 ```go
-import "github.com/gemnasium/migrate/migrate"
+import "github.com/dnaumenko/migrate/migrate"
 
 // Import any required drivers so that they are registered and available
-import _ "github.com/gemnasium/migrate/driver/mysql"
+import _ "github.com/dnaumenko/migrate/driver/mysql"
 
 // use synchronous versions of migration functions ...
 allErrors, ok := migrate.UpSync("driver://url", "./path")
