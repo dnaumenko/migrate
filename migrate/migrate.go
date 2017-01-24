@@ -19,10 +19,10 @@ import (
 	pipep "github.com/dnaumenko/migrate/pipe"
 )
 
-var log *logger.Logger = logger.DefaultLogger()
+var log logger.Logger = logger.DefaultLogger()
 
 // InitLogging overrides a default logger
-func InitLogging(l *logger.Logger) {
+func InitLogging(l logger.Logger) {
 	log = l
 }
 
@@ -176,7 +176,7 @@ func Migrate(pipe chan interface{}, url, migrationsPath string, relativeN int) {
 	if len(applyMigrationFiles) > 0 && relativeN != 0 {
 		for _, f := range applyMigrationFiles {
 			pipe1 := pipep.New()
-			(*log).Printf("Applying %v", f.FileName)
+			log.Printf("Applying %v", f.FileName)
 			go d.Migrate(f, pipe1)
 			if ok := pipep.WaitAndRedirect(pipe1, pipe, handleInterrupts()); !ok {
 				break

@@ -20,6 +20,6 @@ type Logger interface {
 }
 
 // DefaultLogger returns a default implementation for a Logger interface
-func DefaultLogger() *Logger {
+func DefaultLogger() Logger {
 	return log.New(os.Stderr, "", log.LstdFlags)
 }
